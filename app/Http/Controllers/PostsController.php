@@ -29,13 +29,10 @@ class PostsController extends Controller
         //     201
         // ]) ;
 
-        $posts = DB::table('posts')
-            ->where('id', '>', 50)
-            ->count();
-
-        dd($posts);
-
-        return view('blog.index');
+     
+        return view('blog.index', [
+            'posts' => DB::table('posts')->get()
+        ]);
     }
 
     /**
